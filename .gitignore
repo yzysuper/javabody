@@ -1,2 +1,4 @@
 .idea/
 javabody.iml
+mybatisbody/logs/
+mybatisbody/target/
