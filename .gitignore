@@ -1,4 +1,5 @@
 .idea/
-javabody.iml
+*.iml
 mybatisbody/logs/
 mybatisbody/target/
+jdbcbody/target/
