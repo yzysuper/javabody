@@ -63,6 +63,7 @@ public class LocalCacheTest {
             log.debug(sqlSession.getConfiguration().getLocalCacheScope());
             log.info("缓存级别设定为STATEMENT时，同一个sqlSession内一级缓存无效！");
             Assert.assertFalse(user1.equals(user2));
+            sqlSession.getConfiguration().setLocalCacheScope(LocalCacheScope.SESSION);
         } else {
             Assert.assertFalse(true);
         }
@@ -137,7 +138,7 @@ public class LocalCacheTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-//        sqlSession1.getConfiguration().setLocalCacheScope(LocalCacheScope.STATEMENT); // 设定为STATEMENT级别
+//        sqlSession1.getConfiguration().setLocalCacheScope(LocalCacheScope.STATEMENT);
         UserMapper userMapper1 = sqlSession1.getMapper(UserMapper.class);
         UserMapper userMapper2 = sqlSession2.getMapper(UserMapper.class);
         User user1 = userMapper1.selectUserById("1"); // 普通的读取
